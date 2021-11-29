@@ -1,0 +1,725 @@
+{
+	"info": {
+		"_postman_id": "e069b148-8059-4c67-b701-e469cd59aea7",
+		"name": "DemoBlazeApiTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login With Wrong Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Wrong password.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"aykut\",\r\n    \"password\": \"NzY4NTg2ODY=\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/login?",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Auth_token\");\r",
+							"});\r",
+							"let Auth_token = pm.response.json().substring(12, 28);\r",
+							"pm.environment.set('Auth_token',Auth_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Google Chrome\";v=\"95\", \"Chromium\";v=\"95\", \";Not A Brand\";v=\"99\""
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"aykut\",\r\n    \"password\": \"MTIzNA==\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/login?",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Item.username).to.eql('aykut');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"{{Auth_token}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/check",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Phone",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Items[0].cat).to.eql('phone');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cat\": \"phone\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/bycat",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"bycat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Next Page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/pagination",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"pagination"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Previous Page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/pagination",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"pagination"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Monitor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Items[0].cat).to.eql('monitor');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cat\": \"monitor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/bycat",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"bycat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Choose Product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let min = 0;\r",
+							"let max = 6;\r",
+							"// for generating random number \r",
+							"function randomNumber(min, max) { \r",
+							"    return Math.random() * (max - min) + min;\r",
+							"} \r",
+							"let prod_Id = pm.response.json().Items[Math.floor(randomNumber(min,max))].id;\r",
+							"pm.environment.set('prod_Id', prod_Id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cat\": \"notebook\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/bycat",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"bycat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Choose ProductID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let min = 123123;\r",
+							"let max = 7642179;\r",
+							"// for generating random number \r",
+							"function randomNumber(min, max) { \r",
+							"    return Math.random() * (max - min) + min;\r",
+							"} \r",
+							"let basket_Id = Math.floor(randomNumber(min,max));\r",
+							"pm.environment.set('basket_Id', basket_Id);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"{{prod_Id}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/view",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"view"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddToCart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cookie\":\"{{Auth_token}}\",\r\n    \"flag\": \"true\",\r\n    \"id\": \"{{basket_Id}}\",\r\n    \"prod_id\":{{prod_Id}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/addtocart",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"addtocart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewCart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let cartProdId = pm.response.json().Items[0].id;\r",
+							"pm.environment.set('cartProdId', cartProdId);\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Items[0].cookie).to.eql('aykut');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cookie\": \"{{Auth_token}}\",\r\n    \"flag\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/viewcart",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"viewcart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Item deleted.\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"{{cartProdId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/deleteitem",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"deleteitem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.API_URL).to.eql('https://api.demoblaze.com');\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.HLS_URL).to.eql('https://hls.demoblaze.com');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://demoblaze.com/config.json",
+					"protocol": "https",
+					"host": [
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"config.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Go Home Page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Items[0].cat).to.eql('phone');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.demoblaze.com/entries",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"entries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Again",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Item.username).to.eql('aykut');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\": \"{{Auth_token}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.demoblaze.com/check",
+					"protocol": "https",
+					"host": [
+						"api",
+						"demoblaze",
+						"com"
+					],
+					"path": [
+						"check"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

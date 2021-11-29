@@ -1,0 +1,8 @@
+Constants\SuperMarketConstants.class
+Tests\SuperMarketTest.class
+Base\BaseTest.class
+Pages\OyuncakPage.class
+Pages\SuperMarketPage.class
+Base\BasePage.class
+Tests\OyuncakTest.class
+Constants\OyuncakConstants.class

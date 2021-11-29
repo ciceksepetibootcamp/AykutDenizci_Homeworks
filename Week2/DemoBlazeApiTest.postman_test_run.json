@@ -1,0 +1,490 @@
+{
+	"id": "ba84af3b-713d-4cce-b8b1-af3ab47e15b2",
+	"name": "DemoBlazeApiTest",
+	"timestamp": "2021-11-28T20:28:01.711Z",
+	"collection_id": "14612368-35055472-f300-4f36-ac72-d7f14a5de7a7",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 29,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "44f93148-33e6-4c32-9abf-25fe5dd40d39",
+			"name": "Login With Wrong Password",
+			"url": "https://api.demoblaze.com/login?",
+			"time": 232,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				232
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "7a19c5a9-2c87-44a2-87eb-5c9d8cfc56ff",
+			"name": "Login",
+			"url": "https://api.demoblaze.com/login?",
+			"time": 464,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				464
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "fbe5cec2-fb55-46c1-a3e6-f7fc3d482782",
+			"name": "Check",
+			"url": "https://api.demoblaze.com/check",
+			"time": 218,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				218
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "af42e537-8656-472b-b8f0-4043b3d2030e",
+			"name": "Phone",
+			"url": "https://api.demoblaze.com/bycat",
+			"time": 387,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				387
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "d5c1c1a5-782c-40ed-891d-8c66928a86cc",
+			"name": "Next Page",
+			"url": "https://api.demoblaze.com/pagination",
+			"time": 438,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				438
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true
+				}
+			]
+		},
+		{
+			"id": "179ee573-d1d8-459c-8585-a13b5f63dfdb",
+			"name": "Previous Page",
+			"url": "https://api.demoblaze.com/pagination",
+			"time": 233,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 200ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				233
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 200ms": true
+				}
+			]
+		},
+		{
+			"id": "7d44fc12-dc38-452f-99a0-4636f0eaefac",
+			"name": "Monitor",
+			"url": "https://api.demoblaze.com/bycat",
+			"time": 326,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				326
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "8c540a38-1a1b-40fa-86db-ae1bbb577476",
+			"name": "Choose Product",
+			"url": "https://api.demoblaze.com/bycat",
+			"time": 248,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				248
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "d6b2b877-baba-43c9-b256-321996253a4c",
+			"name": "Choose ProductID",
+			"url": "https://api.demoblaze.com/view",
+			"time": 345,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				345
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "b9f5a3fe-00ec-47a4-b8ae-27963f04b624",
+			"name": "AddToCart",
+			"url": "https://api.demoblaze.com/addtocart",
+			"time": 396,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Response time is less than 200ms": true,
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Response time is less than 200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				396
+			],
+			"allTests": [
+				{
+					"Response time is less than 200ms": true,
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "de017c82-eba1-4af1-ab8e-4b09b6cfea1f",
+			"name": "ViewCart",
+			"url": "https://api.demoblaze.com/viewcart",
+			"time": 415,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				415
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "a9ef448d-2bea-4b4d-a8d1-339311234780",
+			"name": "Delete Item",
+			"url": "https://api.demoblaze.com/deleteitem",
+			"time": 427,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				427
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": true
+				}
+			]
+		},
+		{
+			"id": "a11075d6-ae4a-40d5-9915-ad57608a7de7",
+			"name": "Config",
+			"url": "https://demoblaze.com/config.json",
+			"time": 421,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				421
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "3d27c337-ddcb-4184-8eee-fe89ef1e74af",
+			"name": "Go Home Page",
+			"url": "https://api.demoblaze.com/entries",
+			"time": 421,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				421
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "fffee851-eb80-4135-9c7a-47d3094fa22e",
+			"name": "Check Again",
+			"url": "https://api.demoblaze.com/check",
+			"time": 403,
+			"responseCode": {
+				"code": 200
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				403
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		}
+	],
+	"count": 15,
+	"totalTime": 5374,
+	"collection": {
+		"requests": [
+			{
+				"id": "44f93148-33e6-4c32-9abf-25fe5dd40d39",
+				"method": "POST"
+			}
+		]
+	}
+}
