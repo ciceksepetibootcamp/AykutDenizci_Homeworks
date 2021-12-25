@@ -11,7 +11,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.remote.MobilePlatform;
@@ -19,7 +18,7 @@ import io.appium.java_client.remote.MobilePlatform;
 
 
 public class BaseTest {
-    protected static AppiumDriver<MobileElement> appiumDriver;
+    protected static AndroidDriver<MobileElement> appiumDriver;
     protected static WebDriverWait appiumWait;
 
     @BeforeClass

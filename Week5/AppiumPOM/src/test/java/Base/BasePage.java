@@ -1,6 +1,5 @@
 package Base;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -21,8 +20,8 @@ public class BasePage extends BaseTest{
     public AndroidDriver<MobileElement> appiumDriver;
     public WebDriverWait appiumWait;
 
-    public BasePage (AppiumDriver<MobileElement> appiumDriver) {
-        BaseTest.appiumDriver = appiumDriver;
+    public BasePage (AndroidDriver appiumDriver) {
+        this.appiumDriver = appiumDriver;
         this.appiumWait = new WebDriverWait(appiumDriver, 20);
     }
     public MobileElement findElement(By by){

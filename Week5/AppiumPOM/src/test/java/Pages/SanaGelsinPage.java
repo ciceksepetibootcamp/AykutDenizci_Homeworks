@@ -1,8 +1,8 @@
 package Pages;
 
 import Base.BasePage;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
@@ -10,7 +10,7 @@ import static Constants.Constants.*;
 
 public class SanaGelsinPage extends BasePage {
 
-    public SanaGelsinPage(AppiumDriver<MobileElement> appiumDriver) {
+    public SanaGelsinPage(AndroidDriver appiumDriver) {
         super(appiumDriver);
     }
 

@@ -1,8 +1,7 @@
 package Pages;
 
 import Base.BasePage;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
@@ -10,7 +9,7 @@ import static Constants.Constants.*;
 
 public class GelAlPages extends BasePage {
 
-    public GelAlPages(AppiumDriver<MobileElement> appiumDriver) {
+    public GelAlPages(AndroidDriver appiumDriver) {
         super(appiumDriver);
     }
 
